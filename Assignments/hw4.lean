@@ -12,7 +12,8 @@ import Library.Tactic.Use
 
 /- Example 3.1.4 -/ 
 
-example {n : ℤ} (hn : Odd n) : Odd (7 * n - 4) := by
+/- 5 points -/ 
+theorem 314 {n : ℤ} (hn : Odd n) : Odd (7 * n - 4) := by
   dsimp [Odd] at *
   obtain ⟨k, hk⟩ := hn 
   use 7 * k + 1 
@@ -21,7 +22,8 @@ example {n : ℤ} (hn : Odd n) : Odd (7 * n - 4) := by
 
 /- Example 3.1.6 -/
 
-example {x y : ℤ} (hx : Odd x) (hy : Odd y) : Odd (x * y + 2 * y) := by
+/- 5 points -/ 
+theorem 316 {x y : ℤ} (hx : Odd x) (hy : Odd y) : Odd (x * y + 2 * y) := by
   dsimp [Odd] at * 
   obtain ⟨a, ha⟩ := hx
   obtain ⟨b, hb⟩ := hy
@@ -31,7 +33,8 @@ example {x y : ℤ} (hx : Odd x) (hy : Odd y) : Odd (x * y + 2 * y) := by
 
 /- Example 3.1.8 -/
 
-example {n : ℤ} (hn : Even n) : Odd (n ^ 2 + 2 * n - 5) := by
+/- 5 points -/ 
+theorem 318 {n : ℤ} (hn : Even n) : Odd (n ^ 2 + 2 * n - 5) := by
   dsimp [Even] at hn 
   dsimp [Odd] 
   obtain ⟨k, hk⟩ := hn 
@@ -41,7 +44,8 @@ example {n : ℤ} (hn : Even n) : Odd (n ^ 2 + 2 * n - 5) := by
 
 /- 3.1 Exercise 14 Attempt 1 -/
 
-example (a b c : ℤ) : Even (a - b) ∨ Even (a + c) ∨ Even (b - c) := by
+/- 5 points -/ 
+theorem 3114 (a b c : ℤ) : Even (a - b) ∨ Even (a + c) ∨ Even (b - c) := by
   obtain ha | ha := Int.even_or_odd a 
   · obtain hb | hb := Int.even_or_odd b 
     · obtain hc | hc := Int.even_or_odd c 
@@ -148,7 +152,8 @@ example (a b c : ℤ) : Even (a - b) ∨ Even (a + c) ∨ Even (b - c) := by
 
 /- Example 4.1.3 -/
 
-example {a b : ℝ} (h : ∀ x, x ≥ a ∨ x ≤ b) : a ≤ b := by
+/- 5 points -/ 
+theorem 413 {a b : ℝ} (h : ∀ x, x ≥ a ∨ x ≤ b) : a ≤ b := by
   have H : (a + b)/2 ≥ a ∨ (a + b)/2 ≤ b := by apply h 
   obtain h1 | h2 := H 
   · calc 
@@ -182,7 +187,8 @@ example {a b : ℝ} (h : ∀ x, x ≥ a ∨ x ≤ b) : a ≤ b := by
 
 /- Use:  lemma abs_le_of_sq_le_sq' (h : x ^ 2 ≤ y ^ 2) (hy : 0 ≤ y) : -y ≤ x ∧ x ≤ y := -/
 
-example : ∃ c : ℝ, ∀ x y, x ^ 2 + y ^ 2 ≤ 4 → x + y ≥ c := by
+/- 5 points -/ 
+theorem 416 : ∃ c : ℝ, ∀ x y, x ^ 2 + y ^ 2 ≤ 4 → x + y ≥ c := by
   use -3 
   intros x y h 
   have h1 : (x + y) ^ 2 ≤ 3 ^ 2 := 
@@ -199,7 +205,8 @@ example : ∃ c : ℝ, ∀ x y, x ^ 2 + y ^ 2 ≤ 4 → x + y ≥ c := by
 
 /- 4.1 Exercise 2 -/
 
-example {n : ℤ} (hn : ∀ m, 1 ≤ m → m ≤ 5 → m ∣ n) : 15 ∣ n := by
+/- 5 points -/ 
+theorem 412 {n : ℤ} (hn : ∀ m, 1 ≤ m → m ≤ 5 → m ∣ n) : 15 ∣ n := by
   have H3 : 1 ≤ 3 → 3 ≤ 5 → 3 ∣ n := hn 3 
   simp at H3
   have H5 : 1 ≤ 5 → 5 ≤ 5 → 5 ∣ n := hn 5 
@@ -217,7 +224,8 @@ example {n : ℤ} (hn : ∀ m, 1 ≤ m → m ≤ 5 → m ∣ n) : 15 ∣ n := by
 
 notation3 (prettyPrint := false) "forall_sufficiently_large "(...)", "r:(scoped P => ∃ C, ∀ x ≥ C, P x) => r
 
-example : forall_sufficiently_large x : ℝ, x ^ 3 + 3 * x ≥ 7 * x ^ 2 + 12 := by
+/- 5 points -/ 
+theorem 414 : forall_sufficiently_large x : ℝ, x ^ 3 + 3 * x ≥ 7 * x ^ 2 + 12 := by
   use 7 
   intros x hx 
   calc 
@@ -228,7 +236,8 @@ example : forall_sufficiently_large x : ℝ, x ^ 3 + 3 * x ≥ 7 * x ^ 2 + 12 :=
 
 /- Example 4.2.5 -/
 
-example {x : ℝ} : x ^ 2 + x - 6 = 0 ↔ x = -3 ∨ x = 2 := by
+/- 10 points -/ 
+theorem 425 {x : ℝ} : x ^ 2 + x - 6 = 0 ↔ x = -3 ∨ x = 2 := by
   constructor 
   · intros h 
     have h1 : x ^ 2 + x - 6 = (x + 3) * (x - 2) := by ring 
@@ -248,7 +257,8 @@ example {x : ℝ} : x ^ 2 + x - 6 = 0 ↔ x = -3 ∨ x = 2 := by
 
 /- Example 4.2.6 -/
 
-example {a : ℤ} : a ^ 2 - 5 * a + 5 ≤ -1 ↔ a = 2 ∨ a = 3 := by
+/- 10 points -/ 
+theorem 426 {a : ℤ} : a ^ 2 - 5 * a + 5 ≤ -1 ↔ a = 2 ∨ a = 3 := by
   constructor 
   · intros h 
     have h1 : (2 * a - 5) ^ 2 ≤ 1 ^ 2 := 
