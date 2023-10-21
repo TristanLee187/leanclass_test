@@ -10,7 +10,7 @@ import Library.Tactic.Addarith
 import Library.Tactic.Cancel
 import Library.Tactic.Use
 
-/- 5 points -/
+/- 10 points -/
 theorem problem4a {n : ℤ} : 63 ∣ n ↔ 7 ∣ n ∧ 9 ∣ n := by
   constructor 
   · intros h 
@@ -38,7 +38,7 @@ theorem problem4a {n : ℤ} : 63 ∣ n ↔ 7 ∣ n ∧ 9 ∣ n := by
       _ = 4 * 7 * (9 * b) + (-3) * 9 * (7 * a) := by rw [hb] 
       _ = 63 * (4 * b - 3 * a) := by ring 
 
-/- 5 points -/
+/- 10 points -/
 theorem problem4b {k : ℕ} : k ^ 2 ≤ 6 ↔ k = 0 ∨ k = 1 ∨ k = 2 := by
   constructor 
   · intros h 
@@ -77,7 +77,7 @@ theorem problem4b {k : ℕ} : k ^ 2 ≤ 6 ↔ k = 0 ∨ k = 1 ∨ k = 2 := by
     · rw [h3] 
       numbers 
 
-/- 3 points -/
+/- 6 points -/
 theorem problem5a : ∃! x : ℚ, ∀ a, a ≥ 1 → a ≤ 3 → (a - x) ^ 2 ≤ 1 := by
   use 2 
   dsimp 
@@ -117,7 +117,7 @@ theorem problem5a : ∃! x : ℚ, ∀ a, a ≥ 1 → a ≤ 3 → (a - x) ^ 2 ≤
       _ = 0 + 2 := by rw [hy] 
       _ = 2 := by numbers 
 
-/- 3 points -/
+/- 6 points -/
 theorem problem5b : ∃! x : ℚ, 4 * x - 3 = 9 := by
   use 3 
   dsimp 
@@ -131,7 +131,7 @@ theorem problem5b : ∃! x : ℚ, 4 * x - 3 = 9 := by
       _ = 4 * 3 := by numbers 
     cancel 4 at h' 
 
-/- 4 points -/
+/- 8 points -/
 theorem problem5c : ∃! n : ℕ, ∀ a, n ≤ a := by
   use 0 
   dsimp 
@@ -143,7 +143,7 @@ theorem problem5c : ∃! n : ℕ, ∀ a, n ≤ a := by
     simp at h0 
     apply h0 
 
-/- 2.5 points -/
+/- 5 points -/
 theorem problem6a {p : ℕ} (hp : 2 ≤ p) (H : ∀ m : ℕ, 1 < m → m < p → ¬m ∣ p) : Prime p := by
   constructor
   · apply hp -- show that `2 ≤ p`
@@ -162,7 +162,7 @@ theorem problem6a {p : ℕ} (hp : 2 ≤ p) (H : ∀ m : ℕ, 1 < m → m < p →
     · have contra : ¬m ∣ p := H m hm_left m_lt_p 
       contradiction
 
-/- 2.5 points -/
+/- 5 points -/
 theorem problem6b {a b c : ℕ} (ha : 0 < a) (hb : 0 < b) (hc : 0 < c)
     (h_pyth : a ^ 2 + b ^ 2 = c ^ 2) : 3 ≤ a := by
   obtain hneg | hpos : a ≤ 2 ∨ 2 < a := le_or_lt a 2 
@@ -200,7 +200,7 @@ theorem problem6b {a b c : ℕ} (ha : 0 < a) (hb : 0 < b) (hc : 0 < c)
       contradiction 
   apply hpos 
 
-/- 2.5 points -/
+/- 5 points -/
 theorem problem6c {x y : ℝ} (n : ℕ) (hx : 0 ≤ x) (hn : 0 < n) (h : y ^ n ≤ x ^ n) : y ≤ x := by
   obtain h1 | h2 := le_or_lt y x
   · apply h1
@@ -211,7 +211,7 @@ theorem problem6c {x y : ℝ} (n : ℕ) (hx : 0 ≤ x) (hn : 0 < n) (h : y ^ n �
 
 namespace Nat
 
-/- 2.5 points -/
+/- 5 points -/
 theorem problem6d (p : ℕ) (h : Prime p) : p = 2 ∨ Odd p := by
   dsimp [Prime] at h 
   obtain ⟨h1,h2⟩ := h
