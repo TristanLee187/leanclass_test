@@ -15,7 +15,6 @@ attribute [-instance] Int.instDivInt_1 Int.instDivInt EuclideanDomain.instDiv Na
 set_option push_neg.use_distrib true
 
 /- 5 points -/
-
 theorem problem4a : ¬ (∃ n : ℕ, n ^ 2 = 2) := by
   push_neg
   intro n
@@ -31,7 +30,6 @@ theorem problem4a : ¬ (∃ n : ℕ, n ^ 2 = 2) := by
       _ ≤ n ^ 2 := by rel [hn]
 
 /- 5 points -/
-
 theorem problem4b (P Q : Prop) : ¬ (P → Q) ↔ (P ∧ ¬ Q) := by
   constructor
   · intros h1
@@ -76,7 +74,6 @@ theorem problem4b (P Q : Prop) : ¬ (P → Q) ↔ (P ∧ ¬ Q) := by
 -/
 
 /- 5 points -/
-
 theorem problem5a {p : ℕ} (k : ℕ) (hk1 : k ≠ 1) (hkp : k ≠ p) (hk : k ∣ p) : ¬ Prime p := by
   dsimp [Prime]
   push_neg
@@ -85,7 +82,6 @@ theorem problem5a {p : ℕ} (k : ℕ) (hk1 : k ≠ 1) (hkp : k ≠ p) (hk : k �
   apply And.intro hk (And.intro hk1 hkp)
 
 /- 5 points -/
-
 theorem problem5b {p : ℕ} (hp : ¬ Prime p) (hp2 : 2 ≤ p) : ∃ m, 2 ≤ m ∧ m < p ∧ m ∣ p := by
   have H : ¬ (∀ (m : ℕ), 2 ≤ m → m < p → ¬m ∣ p)
   · intro H
